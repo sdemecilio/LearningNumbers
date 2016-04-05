@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="stacey.greenrivertech.net.learningnumbers.MainScreen"
-    tools:showIn="@layout/activity_main_screen">
+    tools:showIn="@layout/activity_main_screen"
+    android:orientation = "vertical">
 
     <!-- title of app -->
     <TextView
@@ -26,7 +27,8 @@
         android:layout_below = "@+id/title"
         android:layout_width="wrap_content"
         android:layout_height = "wrap_content"
-        android:text = "To Play: Select the bigger number."/>
+        android:paddingBottom = "10dp"
+        android:text = "To Play: Hit Generate. Select the bigger number."/>
 
     <!-- button that calls upon the generate method for random numbers -->
     <Button
@@ -35,6 +37,7 @@
         android:layout_height = "wrap_content"
         android:layout_below = "@+id/instructions"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
         android:onClick = "generate"
         android:text = "Generate" />
 
@@ -44,6 +47,8 @@
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
         android:layout_below = "@+id/generateNumbers"
+        android:layout_marginLeft= "10dp"
+        android:layout_marginRight= "115dp"
         android:text = " " />
 
     <!-- button 2 which holds the second random number -->

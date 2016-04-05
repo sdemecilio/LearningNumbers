@@ -57,12 +57,25 @@ public class MainScreen extends AppCompatActivity {
     public void generate(View view)
     {
         Random random = new Random();
-        int firstNumber = random.nextInt(11);
+        int firstNumber = random.nextInt(10)+1; // allows for numbers 1 to 10 to be used
+        int secondNumber = random.nextInt(10) + 1;
 
         TextView firstNum = (TextView)findViewById(R.id.firstNumber);
         String firstNumString = String.valueOf(firstNumber);
         firstNum.setText(firstNumString);
 
+        // prevent first and second number from being the same
+        if (secondNumber == firstNumber || firstNumber == secondNumber)
+        {
+            int retrySecond = random.nextInt(10) + 1;
+            secondNumber = retrySecond;
+        }
+        else
+        {
+            TextView secondNum = (TextView)findViewById(R.id.secondNumber);
+            String secondNumString = String.valueOf(secondNumber);
+            secondNum.setText(secondNumString);
+        }
 
     }
 }
