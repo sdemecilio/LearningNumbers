@@ -46,4 +46,13 @@
         android:layout_below = "@+id/generateNumbers"
         android:text = " " />
 
+    <!-- button 2 which holds the second random number -->
+    <Button
+        android:id = "@+id/secondNumber"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_below = "@+id/generateNumbers"
+        android:layout_toRightOf= "@+id/firstNumber"
+        android:text = "Second Number" />
+
 </RelativeLayout>
