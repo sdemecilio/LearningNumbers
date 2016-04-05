@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="stacey.greenrivertech.net.learningnumbers.MainScreen"
+    tools:showIn="@layout/activity_main_screen">
+
+    <!-- title of app -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:textSize = "30sp"
+        android:text = "Learning Numbers" />
+
+    <!-- instructions for app -->
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_below = "@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "To Play: Select the bigger number."/>
+
+    <!-- button that calls upon the generate method for random numbers -->
+    <Button
+        android:id = "@+id/generateNumbers"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_below = "@+id/instructions"
+        android:layout_centerHorizontal="true"
+        android:onClick = "generate"
+        android:text = "Generate" />
+
+    <!-- button 1 which holds the first random number -->
+    <Button
+        android:id="@+id/firstNumber"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_below = "@+id/generateNumbers"
+        android:text = " " />
+
+</RelativeLayout>
