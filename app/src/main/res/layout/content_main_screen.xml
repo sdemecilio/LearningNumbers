@@ -53,6 +53,6 @@
         android:layout_height = "wrap_content"
         android:layout_below = "@+id/generateNumbers"
         android:layout_toRightOf= "@+id/firstNumber"
-        android:text = "Second Number" />
+        android:text = " " />
 
 </RelativeLayout>
