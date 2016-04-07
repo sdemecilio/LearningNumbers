@@ -1,18 +1,27 @@
 package stacey.greenrivertech.net.learningnumbers;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
 public class MainScreen extends AppCompatActivity {
+
+    Random random = new Random();
+    private int score = 0;
+    private int playTracker = 0;
+    private int firstNumber = random.nextInt(10) + 1; // +1 allows for number between 0 and 1
+    private int secondNumber = random.nextInt(10) + 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,26 +65,95 @@ public class MainScreen extends AppCompatActivity {
     /** created method for random number */
     public void generate(View view)
     {
-        Random random = new Random();
-        int firstNumber = random.nextInt(10)+1; // allows for numbers 1 to 10 to be used
-        int secondNumber = random.nextInt(10) + 1;
+        firstNumber = random.nextInt(10) + 1;
+        secondNumber = random.nextInt(10) + 1;
 
+        // prints random number to button 1
         TextView firstNum = (TextView)findViewById(R.id.firstNumber);
         String firstNumString = String.valueOf(firstNumber);
         firstNum.setText(firstNumString);
 
         // prevent first and second number from being the same
-        if (secondNumber == firstNumber || firstNumber == secondNumber)
+        if (secondNumber == firstNumber)
         {
             int retrySecond = random.nextInt(10) + 1;
             secondNumber = retrySecond;
         }
         else
         {
+            // print second number to button 2
             TextView secondNum = (TextView)findViewById(R.id.secondNumber);
             String secondNumString = String.valueOf(secondNumber);
             secondNum.setText(secondNumString);
         }
 
+        playTracker++; // keeps track of number of plays
+
+        // prints the number of plays to the correct section
+        TextView trackPlay = (TextView)findViewById(R.id.numberPlayed);
+        String play = String.valueOf(playTracker);
+        trackPlay.setText(play);
+    }
+
+    /** check to see if firstNumber is bigger than secondNumber */
+    public void checkFirstNumber (View view) {
+        
+        if (firstNumber > secondNumber) {
+            score++;
+
+            // toast which sends a message that answer is correct
+            CharSequence text = "That is correct!";
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        } else {
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            CharSequence text = "That is not right. :(";
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            --score;
+
+        }
+
+        TextView scoreNum = (TextView) findViewById(R.id.numberScore);
+        String stringScore = String.valueOf(score);
+        scoreNum.setText(stringScore);
+
+    }
+
+    /** check to see if secondNumber is bigger than firstNumber */
+    public void checkSecoundNumber (View view)
+    {
+        if (secondNumber > firstNumber)
+        {
+
+            score++;
+
+            // toast which sends a message that answer is correct
+            CharSequence text = "That is correct!";
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+
+        else
+        {
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            CharSequence text = "That is not right. :(";
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+
+            --score;
+        }
+
+        TextView scoreNum = (TextView)findViewById(R.id.numberScore);
+        String stringScore = String.valueOf(score);
+        scoreNum.setText(stringScore);
     }
 }
