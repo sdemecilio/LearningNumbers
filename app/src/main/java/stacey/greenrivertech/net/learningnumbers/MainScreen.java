@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -93,11 +94,16 @@ public class MainScreen extends AppCompatActivity {
         TextView trackPlay = (TextView)findViewById(R.id.numberPlayed);
         String play = String.valueOf(playTracker);
         trackPlay.setText(play);
+
+        // after clicking the "generate" button for first round,
+        // button becomes disabled and numbers are automatically regenerated
+        Button generateNumbers = (Button)findViewById(R.id.generateNumbers);
+        generateNumbers.setEnabled(false);
     }
 
     /** check to see if firstNumber is bigger than secondNumber */
     public void checkFirstNumber (View view) {
-        
+
         if (firstNumber > secondNumber) {
             score++;
 
@@ -121,6 +127,8 @@ public class MainScreen extends AppCompatActivity {
         TextView scoreNum = (TextView) findViewById(R.id.numberScore);
         String stringScore = String.valueOf(score);
         scoreNum.setText(stringScore);
+
+        generate(view); // automatically regenerates numbers
 
     }
 
@@ -155,5 +163,7 @@ public class MainScreen extends AppCompatActivity {
         TextView scoreNum = (TextView)findViewById(R.id.numberScore);
         String stringScore = String.valueOf(score);
         scoreNum.setText(stringScore);
+
+        generate(view); // automatically regenerates numbers
     }
 }
