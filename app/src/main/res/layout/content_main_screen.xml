@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height = "wrap_content"
         android:paddingBottom = "10dp"
-        android:text = "To Play: Hit Generate. Select the bigger number."/>
+        android:text = "To Play: Hit Generate. Select the bigger number. Play again hit Generate."/>
 
     <!-- button that calls upon the generate method for random numbers -->
     <Button
@@ -49,6 +49,7 @@
         android:layout_below = "@+id/generateNumbers"
         android:layout_marginLeft= "10dp"
         android:layout_marginRight= "115dp"
+        android:onClick = "checkFirstNumber"
         android:text = " " />
 
     <!-- button 2 which holds the second random number -->
@@ -58,6 +59,43 @@
         android:layout_height = "wrap_content"
         android:layout_below = "@+id/generateNumbers"
         android:layout_toRightOf= "@+id/firstNumber"
+        android:onClick = "checkSecoundNumber"
         android:text = " " />
+
+    <!-- score tracker -->
+    <TextView
+        android:id = "@+id/scoreWord"
+        android:layout_width= "wrap_content"
+        android:layout_height= "wrap_content"
+        android:layout_alignParentBottom= "true"
+        android:text = "Score:" />
+
+    <TextView
+        android:id = "@+id/numberScore"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentBottom = "true"
+        android:layout_toRightOf = "@+id/scoreWord"
+        android:layout_marginLeft = "15sp"
+        android:text = "0" />
+
+    <!-- Number of times played -->
+    <TextView
+        android:id = "@+id/timesPlayed"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentBottom = "true"
+        android:layout_toRightOf = "@+id/numberScore"
+        android:layout_marginLeft = "40sp"
+        android:text = "Times played: " />
+
+    <TextView
+        android:id = "@+id/numberPlayed"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_toRightOf = "@+id/timesPlayed"
+        android:layout_alignParentBottom = "true"
+        android:layout_marginLeft = "15sp"
+        android:text = "0" />
 
 </RelativeLayout>
