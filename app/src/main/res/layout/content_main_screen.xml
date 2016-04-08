@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height = "wrap_content"
         android:paddingBottom = "10dp"
-        android:text = "To Play: Hit Generate. Select the bigger number. Play again hit Generate."/>
+        android:text = "To Play: Hit Generate. Select the bigger number. New numbers are automatically generated after selection."/>
 
     <!-- button that calls upon the generate method for random numbers -->
     <Button

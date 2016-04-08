@@ -19,7 +19,7 @@ import java.util.Random;
 public class MainScreen extends AppCompatActivity {
 
     Random random = new Random();
-    private int score = 0;
+    private int numberCorrect = 0;
     private int playTracker = 0;
     private int firstNumber = random.nextInt(10) + 1; // +1 allows for number between 0 and 1
     private int secondNumber = random.nextInt(10) + 1;
@@ -105,7 +105,7 @@ public class MainScreen extends AppCompatActivity {
     public void checkFirstNumber (View view) {
 
         if (firstNumber > secondNumber) {
-            score++;
+            numberCorrect++;
 
             // toast which sends a message that answer is correct
             CharSequence text = "That is correct!";
@@ -120,13 +120,12 @@ public class MainScreen extends AppCompatActivity {
 
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
-            --score;
 
         }
 
-        TextView scoreNum = (TextView) findViewById(R.id.numberScore);
-        String stringScore = String.valueOf(score);
-        scoreNum.setText(stringScore);
+        TextView score = (TextView) findViewById(R.id.numberScore);
+        String stringScore = String.valueOf(numberCorrect);
+        score.setText(stringScore);
 
         generate(view); // automatically regenerates numbers
 
@@ -138,7 +137,7 @@ public class MainScreen extends AppCompatActivity {
         if (secondNumber > firstNumber)
         {
 
-            score++;
+            numberCorrect++;
 
             // toast which sends a message that answer is correct
             CharSequence text = "That is correct!";
@@ -157,12 +156,11 @@ public class MainScreen extends AppCompatActivity {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
 
-            --score;
         }
 
-        TextView scoreNum = (TextView)findViewById(R.id.numberScore);
-        String stringScore = String.valueOf(score);
-        scoreNum.setText(stringScore);
+        TextView score = (TextView)findViewById(R.id.numberScore);
+        String stringScore = String.valueOf(numberCorrect);
+        score.setText(stringScore);
 
         generate(view); // automatically regenerates numbers
     }
